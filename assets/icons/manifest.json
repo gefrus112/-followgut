@@ -1,0 +1,57 @@
+{
+ "followgut": {
+  "icon": "followgut.svg",
+  "ok": true,
+  "src": "(monogram)"
+ },
+ "votyer": {
+  "icon": "votyer.svg",
+  "ok": true,
+  "src": "https://gefrus112.github.io/votyer/assets/favicon.svg"
+ },
+ "lydovar": {
+  "icon": "lydovar.png",
+  "ok": true,
+  "src": "https://gefrus112.github.io/lydovar/icon-192.png"
+ },
+ "marktisoptimizer": {
+  "icon": "marktisoptimizer.png",
+  "ok": true,
+  "src": "https://gefrus112.github.io/marktisoptimizer/web/assets/icons/favicon.ico"
+ },
+ "profileviewer": {
+  "icon": "profileviewer.svg",
+  "ok": true,
+  "src": "(monogram)"
+ },
+ "apiboard": {
+  "icon": "apiboard.svg",
+  "ok": true,
+  "src": "https://api-board.wasmer.app/cube.svg"
+ },
+ "pythonv2": {
+  "icon": "pythonv2.svg",
+  "ok": true,
+  "src": "https://staticfile-gefrus112.wasmer.app/favicon.svg"
+ },
+ "bytescript": {
+  "icon": "bytescript.svg",
+  "ok": true,
+  "src": "(monogram)"
+ },
+ "reposcanner": {
+  "icon": "reposcanner.svg",
+  "ok": true,
+  "src": "(monogram)"
+ },
+ "eltes": {
+  "icon": "eltes.svg",
+  "ok": false,
+  "src": "https://eltes.wasmer.app/assets/img/favicon.svg"
+ },
+ "coursetemplete": {
+  "icon": "coursetemplete.svg",
+  "ok": true,
+  "src": "(monogram)"
+ }
+}

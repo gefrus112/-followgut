@@ -6,6 +6,12 @@
 <title>gefrus112 · dev & creator</title>
 <meta name="description" content="gefrus112 — GitHub + @CubeCometYT. Featured repo -followgut, live YouTube subs, paintable contribution field, repository index.">
 <meta name="theme-color" content="#F3EFE6">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="gefrus112 · dev & creator">
+<meta property="og:description" content="project showcase with live screenshots, youtube stats, a paintable contribution field and more — one page, zero frameworks.">
+<meta property="og:image" content="https://gefrus112.github.io/-followgut/assets/shots/followgut.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316150F'/%3E%3Ccircle cx='21' cy='11' r='5' fill='%2339D353'/%3E%3Cpath d='M17 15 8 24M19 17l-6 6' stroke='%2339D353' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,12 +59,14 @@ kbd{font-family:var(--f-m);font-size:10px;border:1px solid var(--line-strong);pa
 body::after{content:"";position:fixed;inset:0;z-index:120;pointer-events:none;opacity:.045;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
 /* ============ scroll reveal system ============ */
-.rv{opacity:0;transform:translateY(18px);transition:opacity .8s var(--e),transform .8s var(--e);transition-delay:var(--d,0s)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s var(--e),transform .8s var(--e),clip-path .95s var(--e);transition-delay:var(--d,0s)}
 .rv[data-fx="left"]{transform:translateX(-28px)}
 .rv[data-fx="right"]{transform:translateX(28px)}
 .rv[data-fx="scale"]{transform:scale(.94)}
 .rv[data-fx="blur"]{filter:blur(10px);transform:translateY(10px)}
 .rv.in{opacity:1;transform:none;filter:none}
+.rv[data-fx="wipe"]{clip-path:inset(9% 6% 9% 6% round 14px);transform:translateY(44px) scale(.975);opacity:0}
+.rv[data-fx="wipe"].in{clip-path:inset(0 0 0 0 round 14px);opacity:1;transform:none}
 /* word-mask reveal for headings */
 .wm{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
 .w{display:inline-block;transform:translateY(115%);transition:transform .75s var(--e);transition-delay:calc(var(--i)*.055s)}
@@ -259,6 +267,32 @@ body.pal-open{overflow:hidden}
 #fx-canvas{position:fixed;inset:0;z-index:250;pointer-events:none}
 #cur{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:400;opacity:0;transition:opacity .3s,width .25s var(--e),height .25s var(--e),margin .25s var(--e)}
 body.cur-hover #cur{width:52px;height:52px;margin:-26px 0 0 -26px}
+/* ============ projects showcase ============ */
+.proj-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem}
+.proj-sub{margin-top:1.2rem;max-width:46ch;color:var(--muted);font-size:15.5px;line-height:1.7}
+.stack{position:relative;margin-top:2.6rem;padding-bottom:1rem}
+.pcard{position:sticky;top:calc(66px + var(--k)*11px);z-index:var(--z);width:min(100%,940px);margin:0 auto 2.8rem}
+.pc-in{border:1px solid var(--line-strong);background:var(--panel);box-shadow:0 18px 50px rgba(0,0,0,.16);transition:border-color .2s;will-change:transform}
+.pcard:hover .pc-in{border-color:var(--fg)}
+.pc-chrome{display:flex;align-items:center;gap:.8rem;padding:.5rem .75rem;border-bottom:1px solid var(--line);background:var(--bg-2)}
+.pc-dots{display:flex;gap:.34rem;flex-shrink:0}
+.pc-dots i{width:8px;height:8px;border-radius:2px;background:var(--line-strong)}
+.pc-url{flex:1;display:flex;align-items:center;gap:.5rem;min-width:0;border:1px solid var(--line);background:var(--bg);padding:.28rem .6rem;font-family:var(--f-m);font-size:11px;color:var(--muted)}
+.pc-url img{width:14px;height:14px;flex-shrink:0;border-radius:3px}
+.pc-url em{font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-num{font-family:var(--f-m);font-size:10px;letter-spacing:.1em;color:var(--muted);flex-shrink:0}
+.pc-shot{position:relative;display:block;overflow:hidden;background:var(--bg-2);aspect-ratio:16/9.6}
+.pc-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;transform:scale(1.06);will-change:transform}
+.pc-go{position:absolute;right:.9rem;bottom:.9rem;display:inline-flex;align-items:center;gap:.45rem;background:var(--fg);color:var(--bg);font-family:var(--f-m);font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;padding:.5rem .75rem;opacity:0;transform:translateY(8px);transition:.25s var(--e)}
+.pcard:hover .pc-go{opacity:1;transform:none}
+.pc-info{display:flex;align-items:center;gap:.85rem;padding:.7rem .9rem;border-top:1px solid var(--line);flex-wrap:wrap}
+.pc-info .fav{width:19px;height:19px;border-radius:4px;border:1px solid var(--line);background:var(--bg);flex-shrink:0}
+.pc-info h3{font-variation-settings:'wdth' 114;font-weight:700;font-size:1.12rem;letter-spacing:-.01em;text-transform:lowercase}
+.pc-desc{flex:1;min-width:12rem;font-size:13px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pc-lang{font-family:var(--f-m);font-size:11px;color:var(--muted);display:inline-flex;align-items:center;flex-shrink:0}
+.pc-acts{display:flex;gap:.5rem;flex-shrink:0}
+.pc-acts .btn{padding:.45rem .7rem;font-size:10px}
+.r-fav{width:17px;height:17px;border-radius:4px;vertical-align:-3.5px;margin-right:.5rem;border:1px solid var(--line);background:var(--bg)}
 /* ============ responsive ============ */
 @media(max-width:960px){
   .feat,.yt-grid{grid-template-columns:1fr;gap:2.4rem}
@@ -275,10 +309,14 @@ body.cur-hover #cur{width:52px;height:52px;margin:-26px 0 0 -26px}
   .hero-low{flex-direction:column-reverse;align-items:flex-start}
   .stamp{transform:rotate(-3deg)}
   .hero-h{white-space:normal}
+  .pcard{position:static;margin-bottom:1.7rem}
+  .pc-desc{white-space:normal}
+  .pc-go{opacity:1;transform:none}
 }
 @media(max-width:560px){
   .status em{display:none}
   .strip-in,.ledger{grid-template-columns:repeat(2,1fr)}
+  .pc-lang{display:none}
   .cell:nth-child(4){border-left:1px solid var(--line)}
   .cell:nth-child(odd){border-left:0}
   .cell:nth-child(n+3){border-top:1px solid var(--line)}
@@ -286,7 +324,7 @@ body.cur-hover #cur{width:52px;height:52px;margin:-26px 0 0 -26px}
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
-  .rv{opacity:1!important;transform:none!important;filter:none!important}
+  .rv{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important}
   .w{transform:none!important}
   #cur{display:none}
 }
@@ -315,6 +353,7 @@ body.cur-hover #cur{width:52px;height:52px;margin:-26px 0 0 -26px}
     <a class="brand" href="#top"><svg class="ic"><use href="#i-github"/></svg><span>gefrus112</span></a>
     <nav class="nav">
       <a href="#featured">featured</a>
+      <a href="#projects">projects</a>
       <a href="#youtube">youtube</a>
       <a href="#graph">field</a>
       <a href="#index">index</a>
@@ -399,6 +438,9 @@ body.cur-hover #cur{width:52px;height:52px;margin:-26px 0 0 -26px}
             <div class="term-body" id="tree">-followgut/
 ├── <span class="hl">index.html</span>        <span class="c"># the whole site. yes — this one</span>
 ├── README.md         <span class="c"># hello, world</span>
+├── assets/           <span class="c"># shots + icons of my projects</span>
+│   ├── shots/        <span class="c"># live screenshot per card</span>
+│   └── icons/        <span class="c"># website icon per project</span>
 └── .github/
     └── workflows/
         └── pages.yml <span class="c"># deploy on push</span>
@@ -418,10 +460,22 @@ body.cur-hover #cur{width:52px;height:52px;margin:-26px 0 0 -26px}
     </div>
   </section>
 
+  <!-- ================= projects showcase ================= -->
+  <section id="projects" class="section">
+    <div class="wrap">
+      <p class="overline rv">(02) — project showcase</p>
+      <div class="proj-head">
+        <h2 data-split>built, shipped, <span class="serif acc">live</span></h2>
+        <p class="proj-sub rv" data-fx="blur">real screenshots taken straight from production — every card is a running site, with its own icon in the address bar. keep scrolling: the deck stacks as you go.</p>
+      </div>
+    </div>
+    <div class="stack wrap" id="stack"></div>
+  </section>
+
   <!-- ================= youtube ================= -->
   <section id="youtube" class="section">
     <div class="wrap">
-      <p class="overline rv">(02) — youtube · live</p>
+      <p class="overline rv">(03) — youtube · live</p>
       <div class="yt-grid">
         <div>
           <h2 data-split>cube comet, <span class="serif acc">live from orbit</span></h2>
@@ -466,7 +520,7 @@ body.cur-hover #cur{width:52px;height:52px;margin:-26px 0 0 -26px}
   <!-- ================= contribution field ================= -->
   <section id="graph" class="section">
     <div class="wrap">
-      <p class="overline rv">(03) — contribution field</p>
+      <p class="overline rv">(04) — contribution field</p>
       <div class="graph-head">
         <h2 data-split>a year of <span class="serif acc">showing up</span></h2>
         <div class="graph-side rv"><b id="contrib-total">0</b> contributions · past year&nbsp;&nbsp;·&nbsp;&nbsp;painted by visitors: <b id="paint-count">0</b></div>
@@ -485,7 +539,7 @@ body.cur-hover #cur{width:52px;height:52px;margin:-26px 0 0 -26px}
   <!-- ================= index ================= -->
   <section id="index" class="section">
     <div class="wrap">
-      <p class="overline rv">(04) — index of repositories</p>
+      <p class="overline rv">(05) — index of repositories</p>
       <div class="idx-head">
         <h2 data-split>public works</h2>
         <div class="filters rv" id="filters"></div>
@@ -498,7 +552,7 @@ body.cur-hover #cur{width:52px;height:52px;margin:-26px 0 0 -26px}
   <!-- ================= activity ================= -->
   <section id="activity" class="section">
     <div class="wrap">
-      <p class="overline rv">(05) — recent activity</p>
+      <p class="overline rv">(06) — recent activity</p>
       <h2 data-split>recent <span class="serif acc">transmissions</span></h2>
       <div class="log rv" id="log"></div>
     </div>
@@ -507,7 +561,7 @@ body.cur-hover #cur{width:52px;height:52px;margin:-26px 0 0 -26px}
   <!-- ================= contact ================= -->
   <section id="contact" class="section">
     <div class="wrap">
-      <p class="overline rv">(06) — transmission ends</p>
+      <p class="overline rv">(07) — transmission ends</p>
       <a class="big-link rv" href="https://github.com/gefrus112" target="_blank" rel="noopener">
         <span class="bl-pre">github.com/</span><span class="bl-main">gefrus112</span>
         <svg class="ic bl-ic"><use href="#i-arrow"/></svg>
@@ -640,6 +694,68 @@ fx($('top'),()=>{
 fx($('om-wrap'),p=>{ $('om-track').style.transform=`translateX(${-p*34}%)` });
 runFX();
 
+/* ============ projects showcase — real screenshots + site icons ============ */
+const PROJECTS=[
+ {name:'-followgut',repo:'-followgut',lang:'HTML',kind:'this site',url:'https://gefrus112.github.io/-followgut/',icon:'assets/icons/followgut.svg',shot:'assets/shots/followgut.jpg',desc:'the home of this very page — a personal index shipped as one HTML file on GitHub Pages.'},
+ {name:'votyer',repo:'votyer',lang:'JavaScript',kind:'webgl toy',url:'https://gefrus112.github.io/votyer/',icon:'assets/icons/votyer.svg',shot:'assets/shots/votyer.jpg',desc:'my own webgl game builder — build worlds and play them right in the browser.'},
+ {name:'lydovar',repo:'lydovar',lang:'HTML',kind:'web game',url:'https://gefrus112.github.io/lydovar/',icon:'assets/icons/lydovar.png',shot:'assets/shots/lydovar.jpg',desc:'a roblox-inspired game for the browser — blocky, fast, playable.'},
+ {name:'pythonv2',repo:'pythonv2',lang:'JavaScript',kind:'language remix',url:'https://staticfile-gefrus112.wasmer.app/',icon:'assets/icons/pythonv2.svg',shot:'assets/shots/pythonv2.jpg',desc:'python, remade for the web — my own take on it, but better.'},
+ {name:'API-board',repo:'API-board',lang:'TypeScript',kind:'dev tool',url:'https://api-board.wasmer.app/',icon:'assets/icons/apiboard.svg',shot:'assets/shots/apiboard.jpg',desc:'a handy board of public api keys for weather, sheets and other quick projects.'},
+ {name:'marktisoptimizer',repo:'marktisoptimizer',lang:'Python',kind:'optimizer',url:'https://gefrus112.github.io/marktisoptimizer/',icon:'assets/icons/marktisoptimizer.png',shot:'assets/shots/marktisoptimizer.jpg',desc:'fps optimizer for roblox — squeeze more frames out of your machine.'},
+ {name:'github-proflie-viewer',repo:'github-proflie-viewer',lang:'HTML',kind:'viewer',url:'https://gefrus112.github.io/github-proflie-viewer/',icon:'assets/icons/profileviewer.svg',shot:'assets/shots/profileviewer.jpg',desc:'github profile viewer — browse any profile and its code in one place.'},
+ {name:'GitHub-repository-scanner',repo:'GitHub-repository-scanner',lang:'CSS',kind:'scanner',url:'https://gefrus112.github.io/GitHub-repository-scanner/',icon:'assets/icons/reposcanner.svg',shot:'assets/shots/reposcanner.jpg',desc:'scan any github repository — structure, stats and files at a glance.'},
+ {name:'Bytescript',repo:'Bytescript',lang:'C',kind:'language',fork:true,url:'https://gefrus112.github.io/Bytescript/',icon:'assets/icons/bytescript.svg',shot:'assets/shots/bytescript.jpg',desc:'an interpreted programming language written in c.'},
+ {name:'eltes',repo:'eltes',lang:'JavaScript',kind:'ai agent',url:'https://eltes.wasmer.app/',icon:'assets/icons/eltes.svg',shot:'assets/shots/eltes.jpg',desc:'not just an ai agent — a video editor that cuts footage from a prompt.'},
+ {name:'course-templete',repo:'course-templete',lang:'JavaScript',kind:'template',url:'https://gefrus112.github.io/course-templete/',icon:'assets/icons/coursetemplete.svg',shot:'assets/shots/coursetemplete.jpg',desc:'a course site template — fill it in and ship it.'},
+];
+const ICON_MAP={};PROJECTS.forEach(p=>ICON_MAP[p.repo]=p.icon);
+function renderProjects(){
+  const st=$('stack');if(!st)return;
+  st.innerHTML=PROJECTS.map((p,i)=>{
+    const col=LANG_COLORS[p.lang]||'#8b949e';
+    return `<article class="pcard rv" data-fx="wipe" style="--i:${i};--k:${Math.min(i,5)};--z:${i+1}">
+      <div class="pc-in">
+        <div class="pc-chrome">
+          <span class="pc-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="pc-url"><img src="${p.icon}" alt="" width="14" height="14"><em>${esc(p.url.replace(/^https:\/\//,''))}</em></span>
+          <span class="pc-num">${String(i+1).padStart(2,'0')} / ${String(PROJECTS.length).padStart(2,'0')}</span>
+        </div>
+        <a class="pc-shot" href="${p.url}" target="_blank" rel="noopener" aria-label="open ${esc(p.name)}">
+          <img src="${p.shot}" alt="${esc(p.name)} — live screenshot" loading="${i?'lazy':'eager'}" decoding="async" width="1280" height="800">
+          <span class="pc-go">open site <svg class="ic sm"><use href="#i-arrow"/></svg></span>
+        </a>
+        <div class="pc-info">
+          <img class="fav" src="${p.icon}" alt="" width="19" height="19">
+          <h3>${esc(p.name)}${p.fork?'<em class="chip">fork</em>':''}</h3>
+          <p class="pc-desc">${esc(p.desc)}</p>
+          <span class="pc-lang"><i class="ldot" style="background:${col}"></i>${esc(p.lang)}</span>
+          <span class="pc-acts">
+            <a class="btn mag" href="${p.url}" target="_blank" rel="noopener">site <svg class="ic sm"><use href="#i-arrow"/></svg></a>
+            <a class="btn mag" href="https://github.com/${CONFIG.username}/${p.repo}" target="_blank" rel="noopener">code <svg class="ic sm"><use href="#i-arrow"/></svg></a>
+          </span>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+  /* deck + parallax scroll fx (desktop, motion allowed) */
+  const cards=[...st.querySelectorAll('.pcard')];
+  cards.forEach((card,i)=>{
+    const inn=card.querySelector('.pc-in'),shot=card.querySelector('.pc-shot img');
+    inn.style.transformOrigin='50% 0';
+    fx(card,(p,r)=>{
+      if(REDUCED){return}
+      if(innerWidth<=860){inn.style.transform='';inn.style.filter='';shot.style.transform='';return}
+      const travel=Math.min(1,Math.max(0,(innerHeight-r.top)/Math.max(1,innerHeight-72)));
+      shot.style.transform=`translateY(${(1-travel)*-5.5}%) scale(1.06)`;
+      let t=0;const nxt=cards[i+1];
+      if(nxt){const nr=nxt.getBoundingClientRect();t=Math.min(1,Math.max(0,(innerHeight-nr.top)/(innerHeight*.55)))}
+      if(t>0){inn.style.transform=`scale(${1-t*.06})`;inn.style.filter=`brightness(${1-t*.38})`}
+      else{inn.style.transform='';inn.style.filter=''}
+    });
+  });
+}
+renderProjects();
+
 /* ============ word-mask headings ============ */
 document.querySelectorAll('h2[data-split]').forEach(h=>{
   const nodes=[...h.childNodes]; h.textContent=''; let i=0;
@@ -706,9 +822,10 @@ function renderIndex(){
     const col=LANG_COLORS[r.language]||'#8b949e';
     const up=r.pushed_at?relTime(new Date(r.pushed_at)):'—';
     const chip=r.featured?'<em class="chip">featured</em>':(r.fork?'<em class="chip">fork</em>':'');
+    const fav=ICON_MAP[r.name]?`<img class="r-fav" src="${ICON_MAP[r.name]}" alt="" loading="lazy">`:'';
     return `<a class="row" href="${esc(r.html_url)}" target="_blank" rel="noopener" data-lang="${esc(r.language||'')}">
       <span class="r-i">${String(i+1).padStart(2,'0')}</span>
-      <span class="r-n">${esc(r.name)}${chip}</span>
+      <span class="r-n">${fav}${esc(r.name)}${chip}</span>
       <span class="r-d">${esc(r.description||'—')}</span>
       <span class="r-meta">
         <span class="r-l"><i class="ldot" style="background:${col}"></i>${esc(r.language||'—')}</span>
@@ -884,6 +1001,7 @@ const go=sel=>{const el=document.querySelector(sel);if(el)el.scrollIntoView({beh
 const commands=[
   {g:'navigate',t:'back to top',k:'home start hero',fn:()=>go('#top')},
   {g:'navigate',t:'featured — -followgut',k:'repo main',fn:()=>go('#featured')},
+  {g:'navigate',t:'projects — live showcase',k:'screenshots cards deck sites',fn:()=>go('#projects')},
   {g:'navigate',t:'youtube — cube comet live subs',k:'video channel subs',fn:()=>go('#youtube')},
   {g:'navigate',t:'contribution field',k:'graph heatmap paint',fn:()=>go('#graph')},
   {g:'navigate',t:'repository index',k:'repos projects works',fn:()=>go('#index')},
@@ -896,6 +1014,7 @@ const commands=[
   {g:'actions',t:'copy clone command',k:'git clone clipboard',fn:()=>copyText(`git clone https://github.com/${CONFIG.username}/${CONFIG.repo}.git`,'clone command copied — go get it')},
   {g:'actions',t:'copy page url',k:'link share clipboard',fn:()=>copyText(location.href,'page url copied')},
   {g:'actions',t:'open -followgut on github',k:'repo external',fn:()=>window.open(`https://github.com/${CONFIG.username}/${CONFIG.repo}`,'_blank','noopener')},
+  ...PROJECTS.map(p=>({g:'projects',t:'open '+p.name+' ↗',k:p.kind+' live site',fn:()=>window.open(p.url,'_blank','noopener')})),
 ];
 function renderPalList(q){
   filtered=commands.filter(c=>(c.t+' '+c.k).toLowerCase().includes(q.toLowerCase()));
